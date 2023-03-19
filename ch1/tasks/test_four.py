@@ -20,5 +20,5 @@ def test_replace():
     """replace() should change passed in fields."""
     t_before = Task('finish book', 'brian', False)
     t_after = t_before._replace(id=10, done=True)
-    t_expected = Task('finish book', 'brian', True, 11)
+    t_expected = Task('finish book', 'brian', True, 10)
     assert t_after == t_expected
