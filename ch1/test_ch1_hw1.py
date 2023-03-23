@@ -34,3 +34,4 @@ def test_namedtuple_immutable():
 
     with pytest.raises(AttributeError):
         my_tuple.key2 = 'new_value'
+
