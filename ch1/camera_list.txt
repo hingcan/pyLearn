@@ -1,0 +1,7 @@
+Brend|Model|Format|Type|Prise$
+Fujifilm;X100F;APS-C;Digital;1000
+Canon;5DmarkII;Full-Frame;Digital;500
+Ricoh;GRIIIx;APS-C;Digital;1000
+Zenith;12xp;35mm;Analog;100
+Nikon;D3100;APS-C;Digital;500
+Fujifilm;X-T3;APS-C;Digital;1500
