@@ -1,4 +1,4 @@
-Brend|Model|Format|Type|Prise$
+Brend|Model|Format|Type|Price$
 Fujifilm;X100F;APS-C;Digital;1000
 Canon;5DmarkII;Full-Frame;Digital;500
 Ricoh;GRIIIx;APS-C;Digital;1000
