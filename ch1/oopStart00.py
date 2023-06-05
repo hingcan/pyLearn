@@ -42,13 +42,24 @@ class Camera(object):
         self.cropFactor = cropFactor
         self.price = price
 
-    def get_shot(self, model):
+    def getShot(self):
         if self.sensorType == 'Digital':
-            print(f'Your {model} takes a shot! Your jpeg file is ready')
+            print(f'Your {self.model} takes a shot! Your jpeg file is ready')
         elif self.sensorType == 'Analog':
-            print(f'Your analog granny {model} takes a shot! You need to find film laboratory for film develop')
+            print(f'Your analog granny {self.model} takes a shot! You need to find film laboratory for film develop')
         else:
             print("I don't understand, what do you want?")
+
+    def getBuy(self, cash):
+        if self.price == cash:
+            print(f'Give me your {cash} and take this camera, my dear customer')
+        elif self.price < cash:
+            print('Take your new camera and yours ' + str(cash - self.price) + '$! My congrats!')
+        elif self.price > cash:
+            print('You need some money. How about ' + str(self.price - cash) + '$?')
+        else:
+            print("I don't understand, what do you want?")
+
 
 
 
@@ -70,9 +81,12 @@ class Objective(object):
 fujifilmX100v = Camera('Fujifilm', 'X100F', 'APS-C', 'Digital', 'Fixed', 1.5, 1000)
 
 canon50mm14 = Objective('Canon', '50 USM 1.4', True, 50, 1.4, 'FX', False, 200)
-print(fujifilmX100v.__dict__)
+# print(fujifilmX100v.__dict__)
 
 
 
 canon5DIII = Camera('Canon', '5D Mark III', 'Full-Frame', 'Digital', 'FX', 1.0, 500)
-canon5DIII.get_shot('5D Mark III')
+
+canon5DIII.getShot()
+fujifilmX100v.getBuy(1000)
+canon5DIII.getBuy(300)
