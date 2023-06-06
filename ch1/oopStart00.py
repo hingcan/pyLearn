@@ -52,12 +52,16 @@ class Camera(object):
 
     def getBuy(self, cash):
         if self.price == cash:
+            return f'Give me your {cash} and take this camera, my dear customer'
             print(f'Give me your {cash} and take this camera, my dear customer')
         elif self.price < cash:
+            return 'Take your new camera and yours ' + str(cash - self.price) + '$! My congrats!'
             print('Take your new camera and yours ' + str(cash - self.price) + '$! My congrats!')
         elif self.price > cash:
+            return 'You need some money. How about ' + str(self.price - cash) + '$?'
             print('You need some money. How about ' + str(self.price - cash) + '$?')
         else:
+            return "I don't understand, what do you want?"
             print("I don't understand, what do you want?")
 
 
@@ -87,6 +91,48 @@ canon50mm14 = Objective('Canon', '50 USM 1.4', True, 50, 1.4, 'FX', False, 200)
 
 canon5DIII = Camera('Canon', '5D Mark III', 'Full-Frame', 'Digital', 'FX', 1.0, 500)
 
-canon5DIII.getShot()
-fujifilmX100v.getBuy(1000)
-canon5DIII.getBuy(300)
+# canon5DIII.getShot()
+# fujifilmX100v.getBuy(1000)
+# canon5DIII.getBuy(300)
+
+def test_buying_exist_camera():
+    """testing Camera class getBuy method"""
+
+    tSumEq = 1000
+    t1 = f"Give me your {tSumEq} and take this camera, my dear customer"
+    t2 = fujifilmX100v.getBuy(1000)
+    assert t1 == t2
+
+def test_buying_new_camera_eq():
+    """testing Camera class getBuy method"""
+
+    pentaxMX1 = Camera('Pentax', 'MX-1', '1/1.5', 'Digital', 'None', 2.5, 250)
+
+    x = 250
+    t1 = f"Give me your {pentaxMX1.price} and take this camera, my dear customer"
+    t2 = pentaxMX1.getBuy(x)
+    assert t1 == t2
+
+
+def test_buying_new_camera_more():
+    """testing Camera class getBuy method"""
+
+    pentaxMX1 = Camera('Pentax', 'MX-1', '1/1.5', 'Digital', 'None', 2.5, 250)
+
+    x = 300
+    t1 = 'Take your new camera and yours ' + str(x - pentaxMX1.price) + '$! My congrats!'
+    t2 = pentaxMX1.getBuy(x)
+    assert t1 == t2
+
+def test_buying_new_camera_not_enough():
+    """testing Camera class getBuy method"""
+
+    pentaxMX1 = Camera('Pentax', 'MX-1', '1/1.5', 'Digital', 'None', 2.5, 250)
+
+    x = 100
+    t1 = 'You need some money. How about ' + str(pentaxMX1.price - x) + '$?'
+    t2 = pentaxMX1.getBuy(x)
+    assert t1 == t2
+
+# nikon = Camera('Nikon', '3100', '1/1:4', 'Digital', 'None', 3, 100)
+# nikon.getBuy(200)
